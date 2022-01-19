@@ -1,0 +1,24 @@
+<div  class="panel-login">
+  <div><img class="logo" src="../../../assets/logo.jpg" alt="logo"></div>
+  <h2>Prueba Técnica</h2>
+  <form>
+    <div class="grid-login">
+      <i class="fa fa-user icon" aria-hidden="true"></i>
+      <input class="inputs" placeholder="Email" type="email" (input)="getInputs('email', $event.target.value)">
+    </div>
+
+    <div class="grid-login">
+      <i class="fa fa-lock icon" aria-hidden="true"></i>
+      <input class="inputs" placeholder="Contraseña" type="password" (input)="getInputs('pass', $event.target.value)">
+    </div>
+    <div class="checkbox-remember">
+      <p>Recuerdame</p>
+      <input class="checkbox-switch" type="checkbox" (input)="checkRemember($event)" name="remember" id="rememeber-box">
+    </div>
+    <div class="button-margins" >
+      <button class="button-validate" (click)="validationCredentials($event)" >Acceder</button>
+    </div>
+  </form>
+
+  <div class="{{statusClass}}" *ngIf="message">{{message}}</div>
+</div>

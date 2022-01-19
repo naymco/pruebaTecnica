@@ -1,0 +1,123 @@
+
+.panel-login
+  font-family: "JetBrains Mono"
+  font-size: 0.8rem
+  position: absolute
+  background: white
+  padding: 20px
+  left: 50%
+  top: 50%
+  width: 50%
+  text-align: center
+  transform: translate(-50%, -50%)
+  border-radius: 5px
+  .grid-login
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+    .inputs
+      width: 97%
+      height: 20px
+      border-style: none
+      border-bottom: 1px solid #d9d9d9
+      margin: 5px 5px 10px 5px
+      padding: 5px
+      border-radius: 3px
+    .icon
+      font-size: 20px
+      padding: 3px
+  .logo
+    height: 200px
+    width: 200px
+    object-fit: cover
+    border-radius: 50%
+    padding: 0 30px 0 30px
+  .button-validate
+    width: 100%
+    height: 25px
+    padding: 5px
+    margin: 10px 5px 5px 5px
+    background: #eeeeee
+    border-radius: 3px
+    border-style: none
+    cursor: pointer
+    transition: .5s
+    border: 1px solid #333
+  .checkbox-remember
+    position: relative
+    margin: 8px auto
+    padding: 5px
+    display: flex
+    justify-content: space-between
+    align-items: center
+  .checkbox-remember input[type=checkbox ]
+    -webkit-appearance: none
+      -moz-appearance: none
+        appearance: none
+    width: 70px
+    height: 8px
+    background: #444
+    border-radius: 5px
+    position: relative
+    outline: 0
+    cursor: pointer
+  .checkbox-remember input[type=checkbox ]:after,
+  .checkbox-remember input[type=checkbox ]:before
+    position: absolute
+    content: ""
+    -webkit-transition: all .25s
+    transition: all .25s
+  .checkbox-remember input[type=checkbox ]:before
+    width: 10px
+    height: 10px
+    background: #ccc
+    border: 5px solid #666
+    border-radius: 50%
+    top: 50%
+    left: 10px
+    -webkit-transform: translate(0px, -10px)
+    transform: translate(0px, -10px)
+  .checkbox-remember input[type=checkbox ]:after
+    width: 20px
+    height: 20px
+    background: #666
+    border-radius: 50%
+    top: 50%
+    left: 10px
+    transform: translate(15px, -10px)
+    -webkit-transform: scale(1) translateY(-50%)
+    -webkit-transform-origin: 50% 50%
+      transform-origin: 50% 50%
+  .checkbox-remember input[type=checkbox ]:checked:before
+    left: calc(100% - 35px)
+  .checkbox-remember input[type=checkbox ]:checked:after
+    left: 38px
+    -webkit-transform: scale(0)
+      transform: scale(0)
+  .button-margins
+    text-align: center
+    margin: 10px
+    display: block
+    .button-validate
+      width: 50%
+      height: 50px
+      margin: auto
+      border-radius: 50px
+  .button-validate:hover
+    background: forestgreen
+    color: white
+
+
+.login-ko
+  background-color: #e89898
+  padding: 5px
+  border-radius: 3px
+  text-align: center
+  color: darkred
+.login-ok
+  background-color: #b5e898
+  padding: 5px
+  border-radius: 3px
+  text-align: center
+  color: #3f8b00
+
