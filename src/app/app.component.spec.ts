@@ -1,6 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './components/login/login.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +28,69 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('testApp');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('testApp app is running!');
+  it('validation fail email', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.componentInstance;
+    let event = {
+      preventDefault() {
+        'hola';
+      }
+    };
+    login.email = 'hola';
+    login.pass = '12345';
+    login.validationCredentials(event);
+  });
+
+  it('validation fail pass', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.componentInstance;
+    let event = {
+      preventDefault() {
+        'hola';
+      }
+    };
+    login.email = 'hola@hola.com';
+    login.pass = '1234';
+    login.validationCredentials(event);
+  });
+
+  it('validation empty fields', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.componentInstance;
+    let event = {
+      preventDefault() {
+        'hola';
+      }
+    };
+    login.email = '';
+    login.pass = '';
+    login.validationCredentials(event);
+  });
+
+  it('validation Ok', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.componentInstance;
+    let event = {
+      preventDefault() {
+        'hola';
+      }
+    };
+    login.email = 'hola@hola.com';
+    login.pass = '123456';
+    login.validationCredentials(event);
+  });
+
+
+  it('check remember account', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const login = fixture.componentInstance;
+    let event = {
+      target: {
+        checked: true
+      }
+    };
+    login.email = 'hola@hola.com';
+    login.pass = '12345';
+    login.checkRemember(event);
   });
 });
